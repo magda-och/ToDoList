@@ -6,28 +6,24 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="ToDoList")
+@Table(name = "Tasks")
 public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    @Column (name = "Id")
     private Long id;
 
-    @Column (name = "Description")
     private String description;
 
-    @Column (name = "Final_date")
     private LocalDate finalDate;
 
     @Enumerated(EnumType.STRING)
-    @Column (name= "Execution_status")
     private Status status;
 
     public Task() {
     }
 
-    public Task (Long id, String description, int year, int month, int day, Status status){
+    public Task(Long id, String description, int year, int month, int day, Status status) {
         this.id = id;
         this.description = description;
         this.finalDate = LocalDate.of(year, month, day);
