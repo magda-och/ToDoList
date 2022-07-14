@@ -10,6 +10,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
+    @Autowired
     private TasksManager tasksManager;
 
     @Autowired
@@ -17,7 +18,7 @@ public class TaskController {
         this.tasksManager = tasksManager;
     }
 
-    @GetMapping
+    @GetMapping(value = "/gettasks")
     public Iterable<Task> getAllTasks() {
         return tasksManager.findAll();
     }
